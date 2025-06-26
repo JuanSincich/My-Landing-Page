@@ -12,8 +12,10 @@ import {
 const basedStyle = {
   display: "flex",
   alignItems: "center",
-  backgroundColor: theme.palette.primary.light,
-  borderRadius: "24px",
+  /* backgroundColor: theme.palette.primary.light, */
+  boxShadow: "0px 4px 5px rgba(68, 44, 246, 0.3)",
+  borderRadius: "16px",
+  border: `1px solid ${theme.palette.primary.main} `,
 };
 
 const centeredStyle = {
@@ -21,7 +23,7 @@ const centeredStyle = {
 };
 
 const fontColor = {
-  color: theme.palette.background.default,
+  color: theme.palette.primary.main,
 };
 
 export default function Habilities() {
@@ -29,7 +31,7 @@ export default function Habilities() {
     <Container
       disableGutters
       sx={{
-        paddingTop: "6rem",
+        paddingTop: "4rem",
         display: "flex",
         flexDirection: "column ",
         gap: "2rem",

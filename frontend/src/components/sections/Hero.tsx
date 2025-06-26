@@ -4,6 +4,7 @@ import theme from "../../../src/theme/Theme";
 import Title from "../uiComp/title";
 import SocialIconList from "../uiComp/socialIconList/SocialIconList";
 import { socialIcons } from "../uiComp/socialIconList/SocialList";
+import { motion } from "framer-motion";
 
 const specilWordColor = {
   color: theme.palette.secondary.main,

@@ -1,5 +1,4 @@
 import { Box, IconButton } from "@mui/material";
-import theme from "../../../theme/Theme";
 
 interface SkillIconProps {
   name: string;
@@ -17,11 +16,11 @@ export default function SocialIcon({ name, url }: SkillIconProps) {
       sx={{
         width: "3rem",
         height: "3rem",
-        transition: "transform 0.8s ease",
+        /*  transition: "transform 0.8s ease", */
         color: "primary.main",
-        "&:hover": {
+        /*     "&:hover": {
           boxShadow: "0 4px 20px rgba(68, 44, 246, 0.4)",
-        },
+        }, */
       }}
     >
       <Box

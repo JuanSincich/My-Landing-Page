@@ -1,5 +1,4 @@
-import { Box, Typography } from "@mui/material";
-import theme from "../../../theme/Theme";
+import { Box } from "@mui/material";
 
 interface SkillIconProps {
   name: string;

@@ -21,6 +21,7 @@ export default function Title({
         fontFamily: "Saira Condensed",
         fontWeight: 700,
         color: theme.palette.primary.main,
+        paddingBottom: "1rem",
         ...sx,
       }}
     >

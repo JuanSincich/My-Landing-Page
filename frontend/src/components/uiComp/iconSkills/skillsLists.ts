@@ -20,4 +20,4 @@ export const backendSkills = [
   "mysql",
 ];
 
-export const toolsSkills = ["git", "github", "figma", "vscode"];
+export const toolsSkills = ["vscode", "git", "github", "figma"];

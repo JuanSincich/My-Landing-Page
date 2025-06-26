@@ -14,20 +14,21 @@ export default function CertificateImage({
   return (
     <Card
       sx={{
-        backgroundColor: theme.palette.primary.light,
-        borderRadius: "24px",
+        /* backgroundColor: theme.palette.primary.light, */
+        borderRadius: "16px",
+        boxShadow: "0px 4px 5px rgba(68, 44, 246, 0.3)",
       }}
     >
       <CardContent>
         <Typography
-          variant="h6"
+          variant="h5"
           noWrap
           sx={{
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
             textAlign: "center",
-            color: theme.palette.text.primary,
+            color: theme.palette.primary.main,
           }}
         >
           {alt}
@@ -41,10 +42,9 @@ export default function CertificateImage({
           onClick={onClick}
           sx={{
             width: "100%",
-
             height: "auto",
             borderRadius: "1.5rem",
-            boxShadow: "0 4px 20px rgba(68, 44, 246, 0.4)",
+            /* boxShadow: "0 4px 20px rgba(68, 44, 246, 0.4)", */
             display: "block",
             cursor: onClick ? "pointer" : "default",
             transition: "transform 0.3s ease",
