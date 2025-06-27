@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import NavBar from "../components/uiComp/navBar/NavB";
 /* import Footer from "../components/uiComp/footer/Footer"; */
 import { Box } from "@mui/material";
+import Footer from "../components/uiComp/Footer";
 /* import Login from "../components/pages/Login"; */
 
 /* interface NavLink {
@@ -41,7 +42,7 @@ export default function Layout() {
       <Box sx={{ flexGrow: 1 }}>
         <Outlet />
       </Box>
-      {/*  <Footer /> */}
+      <Footer />
 
       {/* <Modal
         open={loginOpen}

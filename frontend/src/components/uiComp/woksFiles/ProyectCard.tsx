@@ -84,7 +84,6 @@ export default function ProyectCard({
             target="_blank"
             rel="noopener noreferrer"
             sx={{
-              /*   textTransform: "none", */
               border: `1px solid ${theme.palette.secondary.main}`,
               borderRadius: "12px",
             }}

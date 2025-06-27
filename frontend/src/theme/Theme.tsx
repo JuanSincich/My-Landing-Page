@@ -20,7 +20,7 @@ const theme = createTheme({
       default: " #f5f5f5",
     },
     text: {
-      primary: "#f5f5f5",
+      primary: "rgb(0, 0, 0)",
       secondary: "#666666",
     },
   },
