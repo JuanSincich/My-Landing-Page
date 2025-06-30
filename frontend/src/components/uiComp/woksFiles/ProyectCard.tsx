@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import theme from "../../../theme/Theme";
+import { alpha } from "@mui/system";
 
 interface ProyectCardProps {
   title: string;
@@ -26,6 +27,7 @@ export default function ProyectCard({
       sx={{
         borderRadius: "16px",
         boxShadow: "0px 4px 5px rgba(68, 44, 246, 0.3)",
+        backgroundColor: alpha(theme.palette.primary.light, 0.1),
       }}
     >
       <CardMedia
@@ -84,6 +86,7 @@ export default function ProyectCard({
             target="_blank"
             rel="noopener noreferrer"
             sx={{
+              /*   textTransform: "none", */
               border: `1px solid ${theme.palette.secondary.main}`,
               borderRadius: "12px",
             }}

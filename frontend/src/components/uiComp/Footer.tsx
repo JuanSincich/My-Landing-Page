@@ -1,4 +1,4 @@
-import { Container } from "@mui/system";
+import { alpha, Container } from "@mui/system";
 import SocialIconList from "./socialIconList/SocialIconList";
 import { Box, Typography } from "@mui/material";
 import { socialIcons } from "./socialIconList/SocialList";
@@ -13,7 +13,7 @@ export default function Footer() {
         paddingTop: "1rem",
         display: "flex",
         flexDirection: "column ",
-
+        backgroundColor: alpha(theme.palette.primary.light, 0.1),
         alignItems: "center",
         borderRadius: "16px 16px 0px 0px",
         borderTop: `1px solid ${theme.palette.primary.main}`,

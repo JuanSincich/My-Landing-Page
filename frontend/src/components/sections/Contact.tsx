@@ -3,9 +3,37 @@ import { Container } from "@mui/material";
 import theme from "../../theme/Theme";
 import Title from "../uiComp/title";
 import Grid from "@mui/material/Grid";
-import { color } from "framer-motion";
+import React, { useState } from "react";
 
 export default function Contact() {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+
+  const HandleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    if (id === "name") {
+      setName(value);
+    } else if (id === "email") {
+      setEmail(value);
+    } else if (id === "message") {
+      setMessage(value);
+    }
+  };
+
+  const HandleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const formData = {
+      name,
+      email,
+      message,
+    };
+
+    console.log("datos del formulario enviado", formData);
+  };
   return (
     <Container
       disableGutters
@@ -49,7 +77,7 @@ export default function Contact() {
       >
         <Box
           component="form"
-          /*   onSubmit={} */
+          onSubmit={HandleSubmit}
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -64,16 +92,16 @@ export default function Contact() {
             label="Nombre"
             type="text"
             fullWidth
-            /*   value={} */
-            /*  onChange={(e) => setPassword(e.target.value)} */
+            value={name}
+            onChange={HandleChange}
           />
           <TextField
             id="email"
             label="Correo electrónico"
             type="email"
             fullWidth
-            /*  value={} */
-            /*  onChange={(e) => setEmail(e.target.value)} */
+            value={email}
+            onChange={HandleChange}
           />
           <TextField
             id="message"
@@ -82,20 +110,21 @@ export default function Contact() {
             multiline
             rows={4}
             fullWidth
-            /*   value={} */
-            /*  onChange={(e) => setPassword(e.target.value)} */
+            value={message}
+            onChange={HandleChange}
           />
           <Button
             color="secondary"
             type="submit"
             variant="outlined"
-            sx={{ borderRadius: "16px" }}
+            sx={{
+              borderRadius: "16px",
+              textTransform: "none",
+              fontSize: "1rem",
+            }}
           >
-            enviar
+            Enviar
           </Button>
-          {/*     <Button type="submit" text="Ingresar" width="400px" align="center">
-          fsdf
-        </Button> */}
         </Box>
       </Box>
     </Container>

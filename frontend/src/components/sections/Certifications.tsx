@@ -20,25 +20,10 @@ export default function Certifications() {
       </Title>
       <Grid container spacing={2} justifyContent="center">
         {certifications.map((cert) => (
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }} key={cert.key}>
             <CertificateImage src={cert.src} alt={cert.alt}></CertificateImage>
           </Grid>
         ))}
-        {/*   <Grid size={10}>
-          <Box component="div" sx={{ textAlign: "center", paddingTop: "3rem" }}>
-            <Typography
-              sx={{
-                fontSize: "1.25rem",
-                color: theme.palette.primary.main,
-              }}
-            >
-              Me destaco por mi iniciativa, adaptación y atención al detalle. Me
-              formé con cursos especializados de calidad y complemento mi
-              aprendizaje de forma constante. Disfruto trabajar en equipo,
-              compartir conocimiento y seguir creciendo día a día.
-            </Typography>
-          </Box>
-        </Grid> */}
       </Grid>
     </Container>
   );

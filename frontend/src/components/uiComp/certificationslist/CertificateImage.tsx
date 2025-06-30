@@ -1,4 +1,11 @@
-import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  alpha,
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import theme from "../../../theme/Theme";
 
 interface CertificateImageProps {
@@ -17,6 +24,7 @@ export default function CertificateImage({
         /* backgroundColor: theme.palette.primary.light, */
         borderRadius: "16px",
         boxShadow: "0px 4px 5px rgba(68, 44, 246, 0.3)",
+        backgroundColor: alpha(theme.palette.primary.light, 0.1),
       }}
     >
       <CardContent>
