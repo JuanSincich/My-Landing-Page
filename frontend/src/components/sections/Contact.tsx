@@ -23,7 +23,7 @@ export default function Contact() {
     }
   };
 
-  const HandleSubmit = (e: React.FormEvent) => {
+  const HandleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const formData = {
@@ -32,7 +32,44 @@ export default function Contact() {
       message,
     };
 
-    console.log("datos del formulario enviado", formData);
+    console.log("Datos del formulario a enviar:", formData);
+
+    try {
+      const response = await fetch("http://localhost:3001/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Respuesta del backend (éxito):", result);
+        alert("¡Mensaje enviado con éxito!");
+
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        const errorResult = await response.json();
+        console.error(
+          "Error al enviar el formulario:",
+          response.status,
+          errorResult
+        );
+        alert(
+          `Error al enviar el mensaje: ${
+            errorResult.message || "Error desconocido"
+          }`
+        );
+      }
+    } catch (error) {
+      console.error("Error de conexión o en la solicitud:", error);
+      alert(
+        "No se pudo conectar con el servidor. Por favor, inténtalo de nuevo más tarde."
+      );
+    }
   };
   return (
     <Container
