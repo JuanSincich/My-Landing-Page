@@ -1,0 +1,21 @@
+# Dependencias de Node
+node_modules/
+
+# Variables de entorno
+.env
+
+# Build artifacts (archivos generados por la compilación)
+build/
+dist/
+.parcel-cache/
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
