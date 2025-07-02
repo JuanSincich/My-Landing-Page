@@ -66,4 +66,5 @@ app.post("/contact", async (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log(`Servidor de contacto escuchando en el puerto ${PORT}`);
   console.log(`URL de prueba: http://localhost:${PORT}/`);
+  console.log(`borrar despues este .log`);
 });
