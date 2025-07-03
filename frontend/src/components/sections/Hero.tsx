@@ -44,7 +44,7 @@ export default function Hero() {
           <Grid size={6}>
             <Box
               component="img"
-              src="public/porfolio_img.jpg"
+              src="porfolio_img.jpg"
               alt="Imagen de Juan Sincich"
               sx={{
                 width: "100%",
