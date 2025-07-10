@@ -12,9 +12,6 @@ import NavListDrawer from "./NavListDrawer";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import ThemeToggleButton from "../buttons/ThemeToggleButton";
-/* import Logo from "../../../../public/cartShoppingLogoExport.jpg"; */
-
-import { useNavigate } from "react-router-dom";
 
 interface NavLink {
   title: string;
@@ -31,8 +28,6 @@ export default function NavB({ navArrayLinks }: NavBarProps) {
   const [open, setOpen] = useState(false);
   const theme = useTheme();
 
-  const navigate = useNavigate();
-
   return (
     <>
       <AppBar
@@ -42,29 +37,21 @@ export default function NavB({ navArrayLinks }: NavBarProps) {
             theme.palette.mode === "dark"
               ? theme.palette.background.default
               : theme.palette.background.default,
-
           backgroundImage: "none",
-
           boxShadow: "none",
-          /* borderBottom: `2px solid ${theme.palette.primary.main}`,
-          borderRadius: "0px 0px 16px 16px", */
-          /* py: { xs: "0.5rem", md: "0.5rem" }, */
         }}
       >
         <Container disableGutters>
           <Toolbar
             disableGutters
             sx={{
-              /*  justifyContent: "center", */
-              justifyContent: "space-between", // <-- CAMBIADO: Esto permite elementos en los extremos
+              justifyContent: "space-between",
               alignItems: "center",
               py: "1.5rem",
-              /*  mb: "1rem", */
               borderBottom: `1px solid ${theme.palette.primary.main}`,
               borderRadius: "0px 0px 16px 16px",
             }}
           >
-            {/* iconBurger */}
             <Box sx={{ display: { xs: "flex", sm: "none" }, flexShrink: 0 }}>
               <IconButton
                 color="inherit"
@@ -78,11 +65,11 @@ export default function NavB({ navArrayLinks }: NavBarProps) {
               </IconButton>
             </Box>
 
-            <Box /* sx={{ display: { xs: "none", sm: "block" } }}  */
+            <Box
               sx={{
                 display: { xs: "none", sm: "flex" },
-                flexGrow: 1, // Permite que ocupe el espacio central
-                justifyContent: "center", // Centra los botones dentro de este Box
+                flexGrow: 1,
+                justifyContent: "center",
               }}
             >
               {navArrayLinks.map((item) => (
@@ -135,22 +122,12 @@ export default function NavB({ navArrayLinks }: NavBarProps) {
               ))}
             </Box>
             <Box sx={{ ml: "auto" }}>
-              {" "}
-              {/* 'ml: auto' empuja el botón a la derecha */}
               <ThemeToggleButton />
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
-      {/*      <Drawer
-        open={open}
-        anchor="left"
-        onClose={() => setOpen(false)}
-        sx={{ display: { xs: "flex", sm: "none" } }}
-      >
-        <NavListDrawer navArrayLinks={navArrayLinks} />
-      </Drawer> */}
-      // En el componente NavB, cambia esta línea en el Drawer:
+
       <Drawer
         open={open}
         anchor="left"
@@ -158,7 +135,6 @@ export default function NavB({ navArrayLinks }: NavBarProps) {
         sx={{ display: { xs: "flex", sm: "none" } }}
       >
         <NavListDrawer navArrayLinks={navArrayLinks} setOpen={setOpen} />{" "}
-        {/* Añade setOpen como prop */}
       </Drawer>
     </>
   );

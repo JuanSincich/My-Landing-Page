@@ -1,5 +1,4 @@
 import { Container, Typography, useTheme } from "@mui/material";
-/* import theme from "../../theme/Theme"; */
 import Grid from "@mui/material/Grid";
 import SkillIconList from "../uiComp/iconSkills/SkillIconList";
 import Title from "../uiComp/title";
@@ -19,13 +18,8 @@ export default function Habilities() {
     boxShadow: getThemedShadow(theme),
     borderRadius: "16px",
     border: `1px solid  `,
-    justifyContent: "center", // Esto centrará el contenido horizontalmente
-    textAlign: "center", // Esto asegura que el texto esté centrado
-    /* width: "100%", */ // Asegura que ocupe todo el ancho disponible
-  };
-
-  const centeredStyle = {
     justifyContent: "center",
+    textAlign: "center",
   };
 
   return (
