@@ -1,10 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
-import { CssBaseline } from "@mui/material";
-import { ThemeProvider } from "@mui/material";
-import Theme from "./theme/Theme.tsx";
 import { BrowserRouter } from "react-router-dom";
+import { ThemeContextProvider } from "./context/ThemeContext.tsx";
 import "@fontsource/nunito/300.css";
 import "@fontsource/nunito/400.css";
 import "@fontsource/nunito/500.css";
@@ -17,11 +15,10 @@ import "@fontsource/saira-condensed/900.css"; // Black
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider theme={Theme}>
+    <ThemeContextProvider>
       <BrowserRouter>
-        <CssBaseline />
         <App />
       </BrowserRouter>
-    </ThemeProvider>
+    </ThemeContextProvider>
   </StrictMode>
 );

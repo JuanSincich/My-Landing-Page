@@ -1,39 +1,72 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, useTheme } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import theme from "../../../src/theme/Theme";
 import Title from "../uiComp/title";
 import SocialIconList from "../uiComp/socialIconList/SocialIconList";
 import { socialIcons } from "../uiComp/socialIconList/SocialList";
-
-const specilWordColor = {
-  color: theme.palette.secondary.main,
-  fontWeight: 500,
-};
+import { getThemedShadow } from "../../theme/getThemedShadow";
 
 export default function Hero() {
+  const theme = useTheme();
+
+  const specilWordColor = {
+    color: theme.palette.secondary.main,
+    fontWeight: 500,
+  };
+
   return (
-    <Box sx={{ flexGrow: 1, paddingTop: "10rem" }}>
-      <Container disableGutters>
-        <Grid container spacing={8} justifyContent="center">
-          <Grid size={6}>
+    <Box sx={{ flexGrow: 1, paddingTop: "4rem" }}>
+      <Container
+        disableGutters
+        maxWidth="lg"
+        sx={{
+          px: {
+            xs: "1rem",
+            sm: "1.5rem",
+            md: "2rem",
+          },
+        }}
+      >
+        <Grid
+          container
+          spacing={{ xs: 2, sm: 4, md: 6, lg: 8 }}
+          justifyContent="center"
+        >
+          <Grid size={{ xs: 12, md: 6 }}>
             <Box
-              textAlign="end"
+              textAlign={{ xs: "center", md: "end" }}
               sx={{
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                alignItems: "flex-end",
-                gap: "1rem",
-                textAlign: "end",
+                alignItems: { xs: "center", md: "flex-end" },
+                gap: { xs: 0, sm: 1, md: 2, lg: 2 },
+                textAlign: { xs: "center", md: "flex-end" },
                 height: "100%",
               }}
             >
-              <Title variant="h3">¡Hola a todos!</Title>
-              <Title variant="h2">Soy Juan Sincich</Title>
-              <Typography
-                variant="h5"
-                sx={{ color: theme.palette.secondary.main }}
+              <Title
+                variant={"h3"}
+                responsive={{
+                  xs: "h4", // Mobile: 1.5rem (si usas tema estándar)
+                  sm: "h4", // Tablet: 1.75rem
+                  md: "h3", // Desktop: 2rem
+                  lg: "h3", // Pantallas grandes: 2.5rem
+                }}
               >
+                ¡Hola a todos!
+              </Title>
+              <Title
+                variant="h2"
+                responsive={{
+                  xs: "h3", // Mobile: 1.5rem (si usas tema estándar)
+                  sm: "h3", // Tablet: 1.75rem
+                  md: "h2", // Desktop: 2rem
+                  lg: "h2", // Pantallas grandes: 2.5rem
+                }}
+              >
+                Soy Juan Sincich
+              </Title>
+              <Typography variant="h5" sx={{ color: "secondary.main" }}>
                 Desarrollador web - Diseñador Ux-Ui
               </Typography>
               <Box sx={{ display: "flex" }}>
@@ -41,7 +74,13 @@ export default function Hero() {
               </Box>
             </Box>
           </Grid>
-          <Grid size={6}>
+          <Grid
+            size={{ xs: 12, md: 6 }}
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "center", md: "start" },
+            }}
+          >
             <Box
               component="img"
               src="porfolio_img.jpg"
@@ -49,19 +88,31 @@ export default function Hero() {
               sx={{
                 width: "100%",
                 maxWidth: 300,
+                maxHeight: 300,
                 height: "auto",
                 borderRadius: "1.5rem",
-                boxShadow: "0 4px 20px rgba(68, 44, 246, 0.4)",
+                border:
+                  theme.palette.mode === "dark"
+                    ? `1px solid ${theme.palette.primary.main}`
+                    : null,
+                boxShadow:
+                  theme.palette.mode === "light"
+                    ? getThemedShadow(theme)
+                    : null,
+                /*  boxShadow: `0px 4px 20px ${themedShadowColor}`, */
+                /*   boxShadow: theme.shadows[6], */
                 display: "block",
               }}
             />
           </Grid>
-          <Grid size={10}>
+          <Grid size={{ xs: 12, md: 10 }}>
             <Box component="div" sx={{ textAlign: "center" }}>
               <Typography
                 sx={{
                   fontSize: "1.25rem",
-                  color: theme.palette.primary.main,
+                  borderBottom: `1px solid ${theme.palette.primary.main}`,
+                  borderRadius: "16px",
+                  py: "1rem",
                 }}
               >
                 <Box component="span" sx={specilWordColor}>

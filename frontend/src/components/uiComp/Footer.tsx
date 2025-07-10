@@ -1,10 +1,11 @@
 import { alpha, Container } from "@mui/system";
 import SocialIconList from "./socialIconList/SocialIconList";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { socialIcons } from "./socialIconList/SocialList";
-import theme from "../../theme/Theme";
+/* import theme from "../../theme/Theme"; */
 
 export default function Footer() {
+  const theme = useTheme();
   return (
     <Container
       disableGutters

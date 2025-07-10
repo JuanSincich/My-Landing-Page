@@ -1,11 +1,13 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography, useTheme } from "@mui/material";
 import { Container } from "@mui/material";
-import theme from "../../theme/Theme";
+/* import theme from "../../theme/Theme"; */
 import Title from "../uiComp/title";
 import Grid from "@mui/material/Grid";
 import React, { useState } from "react";
+import { getThemedShadow } from "../../theme/getThemedShadow";
 
 export default function Contact() {
+  const theme = useTheme();
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -81,6 +83,11 @@ export default function Contact() {
         paddingTop: "4rem",
         display: "flex",
         flexDirection: "column ",
+        px: {
+          xs: "1rem",
+          sm: "1.5rem",
+          md: "2rem",
+        },
         gap: "2rem",
         alignItems: "center",
       }}
@@ -97,7 +104,7 @@ export default function Contact() {
             <Typography
               sx={{
                 fontSize: "1.25rem",
-                color: theme.palette.primary.main,
+                paddingBottom: "1rem",
               }}
             >
               Estoy abierto a nuevas oportunidades y colaboraciones en proyectos
@@ -110,9 +117,13 @@ export default function Contact() {
       <Box
         sx={{
           padding: "1rem",
-          display: "flex",
+          /* display: "flex", */
+          width: "100%",
+          maxWidth: "500px",
           border: `1px solid ${theme.palette.primary.main}`,
           borderRadius: "1rem",
+          boxShadow:
+            theme.palette.mode === "light" ? getThemedShadow(theme) : null,
         }}
       >
         <Box
@@ -123,7 +134,7 @@ export default function Contact() {
             flexDirection: "column",
             alignItems: "center",
             gap: "1rem",
-            width: "30rem",
+            Maxwidth: "30rem",
           }}
         >
           <TextField

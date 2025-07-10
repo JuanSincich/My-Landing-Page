@@ -1,12 +1,14 @@
-import { Container, Button, Box, Typography } from "@mui/material";
+import { Container, Button, Box, Typography, useTheme } from "@mui/material";
 import Title from "../uiComp/title";
 import ProyectCard from "../uiComp/woksFiles/ProyectCard";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import { WorkList } from "../uiComp/woksFiles/Workslist";
-import theme from "../../theme/Theme";
+/* import theme from "../../theme/Theme"; */
 
 export default function Works() {
+  const theme = useTheme();
+
   const [selectedCategory, setSelectedCategory] = useState<
     "all" | "dev" | "ux"
   >("all");
@@ -23,6 +25,11 @@ export default function Works() {
         paddingTop: "4rem",
         display: "flex",
         flexDirection: "column",
+        px: {
+          xs: "1rem",
+          sm: "1.5rem",
+          md: "2rem",
+        },
         gap: "2rem",
       }}
     >
@@ -57,7 +64,7 @@ export default function Works() {
         </Button>
       </Box>
 
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={{ xs: 2, sm: 4, md: 4 }} justifyContent="center">
         {filteredWorks.map((work) => (
           <Grid key={work.title} size={{ xs: 12, sm: 6, md: 4 }}>
             <ProyectCard
@@ -70,11 +77,14 @@ export default function Works() {
           </Grid>
         ))}
         <Grid size={10}>
-          <Box component="div" sx={{ textAlign: "center", paddingTop: "4rem" }}>
+          <Box component="div" sx={{ textAlign: "center", paddingTop: "1rem" }}>
             <Typography
               sx={{
                 fontSize: "1.25rem",
-                color: theme.palette.primary.main,
+
+                borderBottom: `1px solid ${theme.palette.primary.main}`,
+                borderRadius: "16px",
+                py: "1rem",
               }}
             >
               Me destaco por mi iniciativa, adaptación y atención al detalle. Me

@@ -39,7 +39,7 @@ export default function Layout() {
       }}
     >
       <NavBar navArrayLinks={navArrayLinks} />
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, pt: 8 }}>
         <Outlet />
       </Box>
       <Footer />

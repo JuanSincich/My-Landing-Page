@@ -39,7 +39,7 @@ export const WorkList = [
   },
   {
     category: "ux",
-    title: "Currículum UX/UI interactivo",
+    title: "C.v. UX/UI interactivo",
     description: "Currículum UX/UI interactivo. Prototipo en Figma.",
     image: "/cvInteractive.jpg",
     repoUrl: "",

@@ -1,5 +1,5 @@
-import { Container, Typography } from "@mui/material";
-import theme from "../../theme/Theme";
+import { Container, Typography, useTheme } from "@mui/material";
+/* import theme from "../../theme/Theme"; */
 import Grid from "@mui/material/Grid";
 import SkillIconList from "../uiComp/iconSkills/SkillIconList";
 import Title from "../uiComp/title";
@@ -8,25 +8,26 @@ import {
   backendSkills,
   toolsSkills,
 } from "../uiComp/iconSkills/skillsLists";
-
-const basedStyle = {
-  display: "flex",
-  alignItems: "center",
-  /* backgroundColor: theme.palette.primary.light, */
-  boxShadow: "0px 4px 5px rgba(68, 44, 246, 0.3)",
-  borderRadius: "16px",
-  border: `1px solid ${theme.palette.primary.main} `,
-};
-
-const centeredStyle = {
-  justifyContent: "center",
-};
-
-const fontColor = {
-  color: theme.palette.primary.main,
-};
+import { getThemedShadow } from "../../theme/getThemedShadow";
 
 export default function Habilities() {
+  const theme = useTheme();
+
+  const basedStyle = {
+    display: "flex",
+    alignItems: "center",
+    boxShadow: getThemedShadow(theme),
+    borderRadius: "16px",
+    border: `1px solid  `,
+    justifyContent: "center", // Esto centrará el contenido horizontalmente
+    textAlign: "center", // Esto asegura que el texto esté centrado
+    /* width: "100%", */ // Asegura que ocupe todo el ancho disponible
+  };
+
+  const centeredStyle = {
+    justifyContent: "center",
+  };
+
   return (
     <Container
       disableGutters
@@ -34,6 +35,11 @@ export default function Habilities() {
         paddingTop: "4rem",
         display: "flex",
         flexDirection: "column ",
+        px: {
+          xs: "1rem",
+          sm: "1.5rem",
+          md: "2rem",
+        },
         gap: "2rem",
       }}
     >
@@ -41,28 +47,71 @@ export default function Habilities() {
         Habilidades y tecnologías
       </Title>
       <Grid container spacing={2} columnSpacing={1}>
-        <Grid size={2} sx={{ ...basedStyle, ...centeredStyle }}>
-          <Typography variant="h5" sx={{ ...fontColor }}>
+        <Grid
+          size={{ xs: 5, md: 2 }}
+          sx={{ ...basedStyle, margin: { xs: "0 auto", md: "0" } }}
+        >
+          <Typography
+            sx={{
+              fontSize: {
+                xs: "1rem",
+                md: "1.25rem",
+                lg: "1.5rem",
+              },
+            }}
+          >
             Frontend
           </Typography>
         </Grid>
-        <Grid size={10} sx={{ ...basedStyle, paddingLeft: "1rem" }}>
+        <Grid
+          size={{ xs: 12, md: 10 }}
+          sx={{ ...basedStyle, paddingLeft: "1rem" }}
+        >
           <SkillIconList skills={frontendSkills} />
         </Grid>
-        <Grid size={2} sx={{ ...basedStyle, ...centeredStyle }}>
-          <Typography variant="h5" sx={{ ...fontColor }}>
+        <Grid
+          size={{ xs: 5, md: 2 }}
+          sx={{ ...basedStyle, margin: { xs: "0 auto", md: "0" } }}
+        >
+          <Typography
+            variant="h5"
+            sx={{
+              fontSize: {
+                xs: "1rem",
+                md: "1.25rem",
+                lg: "1.5rem",
+              },
+            }}
+          >
             Backend
           </Typography>
         </Grid>
-        <Grid size={10} sx={{ ...basedStyle, paddingLeft: "1rem" }}>
+        <Grid
+          size={{ xs: 12, md: 10 }}
+          sx={{ ...basedStyle, paddingLeft: "1rem" }}
+        >
           <SkillIconList skills={backendSkills} />
         </Grid>
-        <Grid size={2} sx={{ ...basedStyle, ...centeredStyle }}>
-          <Typography variant="h5" sx={{ ...fontColor }}>
+        <Grid
+          size={{ xs: 5, md: 2 }}
+          sx={{ ...basedStyle, margin: { xs: "0 auto", md: "0" } }}
+        >
+          <Typography
+            sx={{
+              fontSize: {
+                xs: "1rem",
+                md: "1.25rem",
+                lg: "1.5rem",
+              },
+            }}
+          >
             Herramientas
           </Typography>
         </Grid>
-        <Grid size={10} sx={{ ...basedStyle, paddingLeft: "1rem" }}>
+        <Grid
+          size={{ xs: 12, md: 10 }}
+          sx={{ ...basedStyle, paddingLeft: "1rem" }}
+        >
           <SkillIconList skills={toolsSkills} />
         </Grid>
       </Grid>

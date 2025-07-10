@@ -1,5 +1,6 @@
 import { alpha, Box, Card, CardContent, Typography } from "@mui/material";
-import theme from "../../../theme/Theme";
+import { useTheme } from "@mui/material/styles";
+import { getThemedShadow } from "../../../theme/getThemedShadow";
 
 interface CertificateImageProps {
   src: string;
@@ -11,12 +12,17 @@ export default function CertificateImage({
   alt,
   onClick,
 }: CertificateImageProps) {
+  const theme = useTheme();
   return (
     <Card
       sx={{
         borderRadius: "16px",
-        boxShadow: "0px 4px 5px rgba(68, 44, 246, 0.3)",
-        backgroundColor: alpha(theme.palette.primary.light, 0.1),
+        boxShadow:
+          theme.palette.mode === "light" ? getThemedShadow(theme) : null,
+        backgroundColor:
+          theme.palette.mode === "light"
+            ? alpha(theme.palette.primary.light, 0.1)
+            : null,
       }}
     >
       <CardContent>
@@ -28,7 +34,7 @@ export default function CertificateImage({
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
             textAlign: "center",
-            color: theme.palette.primary.main,
+            /*   color: theme.palette.primary.main, */
           }}
         >
           {alt}
