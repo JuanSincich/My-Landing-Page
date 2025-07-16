@@ -8,7 +8,7 @@ export const frontendSkills = [
   "react",
   "vite",
   "materialui",
-  "tailwind ",
+  "tailwind",
 ];
 
 export const backendSkills = [
@@ -20,4 +20,4 @@ export const backendSkills = [
   "mysql",
 ];
 
-export const toolsSkills = ["vscode", "git", "github", "figma"];
+export const toolsSkills = ["vscode", "git", "github", "figma", "discord"];
